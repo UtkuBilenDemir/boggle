@@ -22,8 +22,8 @@ class Board:
             if n <=5:    # If the elements on the board are fewer than 26 there doesn't have to be any repetitions.
 
                 while len(ran) < n**2:
-                     ran.append(random.choice(lettersString))
-                     ran = list(set(ran))
+                    ran.append(random.choice(lettersString))
+                    ran = list(set(ran))
 
                 for i in range(n):
                     for j in range(n):
@@ -35,7 +35,7 @@ class Board:
                     while len(ran) < len(lettersString):
                         ran.append(random.choice(lettersString))
                         ran = list(set(ran))
-                        
+
                     # bran.append(lambda: ran[k] for k in range(len(ran)-1))
                     random.shuffle(ran)
                     bran += ran
@@ -54,7 +54,7 @@ class Board:
         return str(self.letters)
 
     def spcPrint(self, connection = None):    # only functioning on a 4x4 board__
-                                              # Primarily for debuging
+        # Primarily for debuging
         if connection is None:   # U -> "is" instead of "=="
             connection = [False for i in range(72)]    # Whole board -> False
 
@@ -113,13 +113,13 @@ class Board:
                 for i in gui.blist:
                     for j in i:
                         j.setStyleSheet(" color: #303030;\n"
-                                        "\n"
-                                        "background: #e87461 ;\n"
-                                        "border: 2px solid #303030;\n"
-                                        "    border-radius: 20px;\n"
-                                        "    border-style: outset;\n"
-                                        "\n"
-                                        "Text-align:center")
+                                "\n"
+                                "background: #e87461 ;\n"
+                                "border: 2px solid #303030;\n"
+                                "    border-radius: 20px;\n"
+                                "    border-style: outset;\n"
+                                "\n"
+                                "Text-align:center")
                 return
 
         if cmdVis:
@@ -138,13 +138,13 @@ class Board:
         if guiVis:
             for i in chainList:
                 gui.blist[i[0]][i[1]].setStyleSheet(" color: #303030;\n"
-                                         "\n"
-                                         "background: #74b9ff ;\n"
-                                         "border: 2px solid #303030;\n"
-                                         "    border-radius: 20px;\n"
-                                         "    border-style: outset;\n"
-                                         "\n"
-                                         "Text-align:center;")
+                        "\n"
+                        "background: #74b9ff ;\n"
+                        "border: 2px solid #303030;\n"
+                        "    border-radius: 20px;\n"
+                        "    border-style: outset;\n"
+                        "\n"
+                        "Text-align:center;")
                 time.sleep(d)
 
             QtWidgets.qApp.processEvents()
@@ -163,13 +163,13 @@ class Board:
                 for i in chainList:
 
                     gui.blist[i[0]][i[1]].setStyleSheet(" color: #303030;\n"
-                                         "\n"
-                                         "background: #55efc4 ;\n"
-                                         "border: 2px solid #303030;\n"
-                                         "    border-radius: 20px;\n"
-                                         "    border-style: outset;\n"
-                                         "\n"
-                                         "Text-align:center;")
+                            "\n"
+                            "background: #55efc4 ;\n"
+                            "border: 2px solid #303030;\n"
+                            "    border-radius: 20px;\n"
+                            "    border-style: outset;\n"
+                            "\n"
+                            "Text-align:center;")
                     time.sleep(d)
                 try:
                     gui.textEdit.append(f'--> {prefix}')
@@ -212,18 +212,18 @@ class Board:
                             print(f'next = {newStart}')
 
                     QtWidgets.qApp.processEvents()
-                            
+
                     self.dfs(newBoard, trie, newStart, newPrefix, cmdVis, newCon, guiVis, gui, newChainList, d)
                     # dfs @i with modified bord & prefix
                     # add word to list if it is at the end of the trie
         if guiVis:
             gui.blist[start[0]][start[1]].setStyleSheet(" color: #303030;\n"
-                                             "\n"
-                                             "background: #e87461 ;\n"
-                                             "border: 2px solid #303030;\n"
-                                             "    border-radius: 20px;\n"
-                                             "    border-style: outset;\n"
-                                             "\n"
-                                             "Text-align:center")
+                    "\n"
+                    "background: #e87461 ;\n"
+                    "border: 2px solid #303030;\n"
+                    "    border-radius: 20px;\n"
+                    "    border-style: outset;\n"
+                    "\n"
+                    "Text-align:center")
         time.sleep(d)
         return
